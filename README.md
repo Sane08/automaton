@@ -1,21 +1,7 @@
-# AutomatonSolver
+# Autômatos Finitos Determinísticos e Não-Determinísticos em Elixir
 
-**TODO: Add description**
+Este código implementa o algoritmo de simulação de autômato determinístico e não-determinístico em Elixir por meio de funções recursivas.
 
-## Installation
+A atividade foi realizada como terceiro Exercício Programa (EP3) para a disciplina PCS3556.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `automaton` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:automaton, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/automaton>.
-
+Como recomendado no enunciado da atividade, foi desenvolvido inicialmente um simulador de autômatos finitos determinísticos. Por não possibilitar o uso de autômatos não-determinísticos, nos quais permite-se múltiplas saídas a partir de cada estado, garante-se uma certa simplicidade ao código necessário para o desenvolvimento da ferramenta, de tal forma que se possa utilizá-la como base para o desenvolvimento do simulador de autômatos não-determinísticos.
