@@ -48,14 +48,14 @@ defmodule AutomatonSolverTest do
 			{:q4, "a", :q5},
     ]
 		assert AutomatonSolver.automatonAcceptsInput("a", automaton_with_empty_loop, [:q0], [:q2, :q5])
-		assert not AutomatonSolver.automatonAcceptsInput("b", automaton_with_empty_loop, [:q0], [:q2, :q5])
-		assert not AutomatonSolver.automatonAcceptsInput("ababab", automaton_with_empty_loop, [:q0], [:q2, :q5])
+		assert AutomatonSolver.automatonAcceptsInput("b", automaton_with_empty_loop, [:q0], [:q2, :q5])
+		assert AutomatonSolver.automatonAcceptsInput("ababab", automaton_with_empty_loop, [:q0], [:q2, :q5])
 		assert AutomatonSolver.automatonAcceptsInput("abba", automaton_with_empty_loop, [:q0], [:q2, :q5])
 		assert AutomatonSolver.automatonAcceptsInput("bba", automaton_with_empty_loop, [:q0], [:q2, :q5])
 		assert AutomatonSolver.automatonAcceptsInput("aa", automaton_with_empty_loop, [:q0], [:q2, :q5])
 		assert not AutomatonSolver.automatonAcceptsInput("bb", automaton_with_empty_loop, [:q0], [:q2, :q5])
 		assert not AutomatonSolver.automatonAcceptsInput("ba", automaton_with_empty_loop, [:q0], [:q2, :q5])
-		assert not AutomatonSolver.automatonAcceptsInput("abb", automaton_with_empty_loop, [:q0], [:q2, :q5])
-		assert not AutomatonSolver.automatonAcceptsInput("bbab", automaton_with_empty_loop, [:q0], [:q2, :q5])
+		assert AutomatonSolver.automatonAcceptsInput("abb", automaton_with_empty_loop, [:q0], [:q2, :q5])
+		assert AutomatonSolver.automatonAcceptsInput("bbab", automaton_with_empty_loop, [:q0], [:q2, :q5])
   end
 end

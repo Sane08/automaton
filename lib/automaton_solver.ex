@@ -42,7 +42,17 @@ defmodule AutomatonSolver do
             analyzeInput(input, transitions, [hd(nil_next_states)], repeated_transitions) ++
             analyzeInput(input, transitions, tl(nil_next_states), repeated_transitions)
         end
-      length(input) <= 0 && current_state_array != [] -> current_state_array
+      length(input) <= 0 && current_state_array != [] ->
+        current_state = hd(current_state_array)
+        {_next_states, nil_next_states} = transistionState(current_state, transitions, input)
+        {repeated_transitions, nil_next_states} = checkTransitions(input, nil_next_states, repeated_transitions)
+        if nil_next_states != [] do
+          analyzeInput(input, transitions, [hd(nil_next_states)], repeated_transitions) ++
+          analyzeInput(input, transitions, tl(nil_next_states), repeated_transitions) ++
+          current_state_array
+        else
+          current_state_array
+        end
       true -> []
     end
   end
