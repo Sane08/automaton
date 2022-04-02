@@ -8,7 +8,8 @@ defmodule AutomatonSolver do
 
   def checkTransitions(input, nil_next_states, repeated_nil_transitions, nil_next_states_to_be_analyzed \\ []) do
     if length(nil_next_states) > 0 do
-      input_next_state_set = input <> Atom.to_string(hd(nil_next_states))
+      joint_input = Enum.join(input)
+      input_next_state_set = joint_input <> Atom.to_string(hd(nil_next_states))
       if Enum.member?(repeated_nil_transitions, input_next_state_set) do
         checkTransitions(input, tl(nil_next_states), repeated_nil_transitions, nil_next_states_to_be_analyzed)
       else
@@ -26,7 +27,7 @@ defmodule AutomatonSolver do
         current_state = hd(current_state_array)
         current_input = hd(input)
         {next_states, nil_next_states} = transistionState(current_state, transitions, current_input)
-        {repeated_transitions, nil_next_states} = checkTransitions(current_input, nil_next_states, repeated_transitions)
+        {repeated_transitions, nil_next_states} = checkTransitions(input, nil_next_states, repeated_transitions)
         cond do
           next_states == [] && nil_next_states == [] -> []
           next_states != [] && nil_next_states == [] ->
